@@ -1,0 +1,89 @@
+{
+  "commands": [
+    {
+      "name": "example_command",
+      "registryName": "examplemod:example_command",
+      "unlocalizedName": "command.examplemod.example_command",
+      "description": "An example command for the mod",
+      "usage": "/example_command <param1> [param2]",
+      "permissionLevel": 0,
+      "requiresOP": false,
+      "aliases": ["excmd", "example"],
+      "executorClass": "com.example.examplemod.command.ExampleCommand",
+      "parameters": [
+        {
+          "name": "param1",
+          "type": "string",
+          "required": true,
+          "description": "The first parameter"
+        },
+        {
+          "name": "param2",
+          "type": "integer",
+          "required": false,
+          "description": "An optional second parameter",
+          "default": 10
+        }
+      ]
+    },
+    {
+      "name": "teleport_to_spawn",
+      "registryName": "examplemod:teleport_to_spawn",
+      "unlocalizedName": "command.examplemod.teleport_to_spawn",
+      "description": "Teleport to spawn point",
+      "usage": "/tpspawn [player]",
+      "permissionLevel": 2,
+      "requiresOP": true,
+      "aliases": ["tpspawn"],
+      "executorClass": "com.example.examplemod.command.TeleportToSpawnCommand",
+      "parameters": [
+        {
+          "name": "player",
+          "type": "player",
+          "required": false,
+          "description": "Player to teleport (default: yourself)"
+        }
+      ]
+    },
+    {
+      "name": "set_home",
+      "registryName": "examplemod:set_home",
+      "unlocalizedName": "command.examplemod.set_home",
+      "description": "Set your home location",
+      "usage": "/sethome [name]",
+      "permissionLevel": 0,
+      "requiresOP": false,
+      "aliases": ["sh"],
+      "executorClass": "com.example.examplemod.command.SetHomeCommand",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "description": "Name of the home (default: 'home')",
+          "default": "home"
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "registryName": "examplemod:home",
+      "unlocalizedName": "command.examplemod.home",
+      "description": "Teleport to your home location",
+      "usage": "/home [name]",
+      "permissionLevel": 0,
+      "requiresOP": false,
+      "aliases": [],
+      "executorClass": "com.example.examplemod.command.HomeCommand",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "description": "Name of the home to teleport to (default: 'home')",
+          "default": "home"
+        }
+      ]
+    }
+  ]
+}

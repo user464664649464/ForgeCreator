@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>811</width>
+    <height>606</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Forge模组构建器</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>811</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="File">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="New"/>
+   </widget>
+   <widget class="QMenu" name="Edit">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <widget class="QMenu" name="Create">
+     <property name="title">
+      <string>Create...</string>
+     </property>
+     <addaction name="Block"/>
+     <addaction name="Item"/>
+     <addaction name="Tag"/>
+     <addaction name="Sound"/>
+     <addaction name="Command"/>
+     <addaction name="Recipe"/>
+    </widget>
+    <addaction name="Create"/>
+   </widget>
+   <widget class="QMenu" name="Help">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="aHelp"/>
+    <addaction name="About"/>
+   </widget>
+   <addaction name="File"/>
+   <addaction name="Edit"/>
+   <addaction name="Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="New">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="Block">
+   <property name="text">
+    <string>Block</string>
+   </property>
+  </action>
+  <action name="Item">
+   <property name="text">
+    <string>Item</string>
+   </property>
+  </action>
+  <action name="Tag">
+   <property name="text">
+    <string>Tag</string>
+   </property>
+  </action>
+  <action name="Sound">
+   <property name="text">
+    <string>Sound</string>
+   </property>
+  </action>
+  <action name="Command">
+   <property name="text">
+    <string>Command</string>
+   </property>
+  </action>
+  <action name="Recipe">
+   <property name="text">
+    <string>Recipe</string>
+   </property>
+  </action>
+  <action name="aHelp">
+   <property name="text">
+    <string>Help...</string>
+   </property>
+  </action>
+  <action name="About">
+   <property name="text">
+    <string>About...</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>menubar</sender>
+   <signal>triggered(QAction*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>createNew()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>26</x>
+     <y>13</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>createNew()</slot>
+  <slot>new(QString)</slot>
+ </slots>
+</ui>

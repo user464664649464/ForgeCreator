@@ -1,0 +1,240 @@
+{
+  "modInfo": {
+    "modid": "examplemod",
+    "name": "Example Mod",
+    "version": "1.0.0",
+    "description": "A simple example Minecraft Forge mod",
+    "mcVersion": "1.16.5",
+    "forgeVersion": "36.2.34",
+    "authors": ["Author Name"],
+    "credits": ["Contributors"],
+    "logoFile": "assets/examplemod/textures/logo.png",
+    "updateJSONURL": "",
+    "displayURL": "",
+    "wikiURL": "",
+    "issueTrackerURL": "",
+    "sourcesURL": ""
+  },
+  "dependencies": [
+    {
+      "modid": "forge",
+      "type": "required",
+      "version": "[36.2.34,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+    },
+    {
+      "modid": "minecraft",
+      "type": "required",
+      "version": "[1.16.5,1.16.5]",
+      "ordering": "NONE",
+      "side": "BOTH"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "example_block",
+      "registryName": "examplemod:example_block",
+      "unlocalizedName": "tile.examplemod.example_block",
+      "material": "rock",
+      "hardness": 2.0,
+      "resistance": 10.0,
+      "harvestLevel": 1,
+      "harvestTool": "pickaxe",
+      "lightValue": 0,
+      "lightOpacity": 255,
+      "creativeTab": "examplemod",
+      "textureName": "examplemod:blocks/example_block",
+      "model": "cube_all",
+      "defaultState": {
+        "axis": "y"
+      },
+      "variants": [
+        {
+          "name": "axis",
+          "values": ["x", "y", "z"]
+        }
+      ],
+      "tileEntity": {
+        "type": "examplemod:example_block_entity",
+        "class": "net.minecraft.tileentity.TileEntityType"
+      }
+    }
+  ],
+  "items": [
+    {
+      "name": "example_item",
+      "registryName": "examplemod:example_item",
+      "unlocalizedName": "item.examplemod.example_item",
+      "material": "iron",
+      "maxStackSize": 64,
+      "creativeTab": "examplemod",
+      "textureName": "examplemod:items/example_item",
+      "model": "item/generated",
+      "enchantability": 14,
+      "rarity": "COMMON",
+      "toolClass": {
+        "pickaxe": 2
+      },
+      "attackDamage": 3.0,
+      "attackSpeed": -2.8
+    }
+  ],
+  "recipes": [
+    {
+      "name": "example_block",
+      "type": "crafting_shaped",
+      "pattern": [
+        "XXX",
+        "XXX",
+        "XXX"
+      ],
+      "key": {
+        "X": {
+          "item": "minecraft:cobblestone"
+        }
+      },
+      "result": {
+        "item": "examplemod:example_block",
+        "count": 1
+      }
+    },
+    {
+      "name": "example_item",
+      "type": "crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:iron_ingot"
+        },
+        {
+          "item": "minecraft:stick"
+        }
+      ],
+      "result": {
+        "item": "examplemod:example_item",
+        "count": 1
+      }
+    }
+  ],
+  "entities": [
+    {
+      "name": "example_entity",
+      "registryName": "examplemod:example_entity",
+      "unlocalizedName": "entity.examplemod.example_entity",
+      "entityClass": "com.example.examplemod.entity.ExampleEntity",
+      "rendererClass": "com.example.examplemod.renderer.ExampleEntityRenderer",
+      "eggPrimary": "#FF5733",
+      "eggSecondary": "#33FF57",
+      "spawnEgg": true,
+      "trackingRange": 80,
+      "updateFrequency": 3,
+      "sendVelocityUpdates": true,
+      "attributes": [
+        {
+          "name": "generic.maxHealth",
+          "value": 20.0
+        },
+        {
+          "name": "generic.movementSpeed",
+          "value": 0.25
+        }
+      ]
+    }
+  ],
+  "biomes": [
+    {
+      "name": "example_biome",
+      "registryName": "examplemod:example_biome",
+      "unlocalizedName": "biome.examplemod.example_biome",
+      "temperature": 0.5,
+      "downfall": 0.5,
+      "category": "plains",
+      "precipitation": "rain",
+      "depth": 0.125,
+      "scale": 0.05,
+      "temperatureModifier": "none",
+      "waterColor": 4159204,
+      "waterFogColor": 329011,
+      "skyColor": 7972607,
+      "foliageColor": 8103167,
+      "grassColor": 12369084,
+      "spawns": [
+        {
+          "entity": "examplemod:example_entity",
+          "weight": 10,
+          "minGroupSize": 2,
+          "maxGroupSize": 4
+        }
+      ]
+    }
+  ],
+  "creativeTabs": [
+    {
+      "name": "examplemod",
+      "registryName": "examplemod:examplemod",
+      "unlocalizedName": "itemGroup.examplemod",
+      "backgroundImageName": "item_search.png",
+      "displayAllRelevantItems": true,
+      "iconItem": "examplemod:example_item"
+    }
+  ],
+  "events": [
+    {
+      "type": "FMLCommonSetupEvent",
+      "priority": "NORMAL",
+      "receivers": ["com.example.examplemod.event.CommonSetupEvent"]
+    },
+    {
+      "type": "FMLClientSetupEvent",
+      "priority": "NORMAL",
+      "receivers": ["com.example.examplemod.event.ClientSetupEvent"]
+    },
+    {
+      "type": "ForgeSubscribe",
+      "priority": "NORMAL",
+      "receivers": ["com.example.examplemod.event.PlayerEvents"]
+    }
+  ],
+  "network": {
+    "channels": [
+      {
+        "channelName": "examplemod",
+        "version": "1.0",
+        "protocol": 1,
+        "side": "BOTH",
+        "messages": [
+          {
+            "name": "ExampleMessage",
+            "id": 0,
+            "messageClass": "com.example.examplemod.network.ExampleMessage",
+            "handlerClass": "com.example.examplemod.network.ExampleMessageHandler"
+          }
+        ]
+      }
+    ]
+  },
+  "config": {
+    "categories": [
+      {
+        "name": "general",
+        "comment": "General settings",
+        "entries": [
+          {
+            "name": "enableExampleFeature",
+            "type": "boolean",
+            "default": true,
+            "comment": "Enable the example feature"
+          },
+          {
+            "name": "exampleValue",
+            "type": "int",
+            "default": 10,
+            "minValue": 0,
+            "maxValue": 100,
+            "comment": "Example integer value"
+          }
+        ]
+      }
+    ]
+  }
+}
